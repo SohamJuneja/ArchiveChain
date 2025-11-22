@@ -315,7 +315,7 @@ export function ArchiveViewer() {
       
       // [NEW] Call AI Analysis
       try {
-        const aiResponse = await fetch('http://localhost:4000/api/analyze', {
+        const aiResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/analyze`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text1: textOld, text2: textNew })

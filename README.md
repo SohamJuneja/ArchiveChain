@@ -205,6 +205,29 @@ MIT License - see LICENSE file
 - ✅ **Blockchain Integration** - Sui for immutable proof
 - ✅ **AI/ML** - Automated truth detection
 
+## 🚀 Deployment
+
+### Frontend (Vercel)
+1. Push code to GitHub
+2. Import project on [Vercel](https://vercel.com)
+3. Set environment variable: `VITE_API_URL=https://your-backend-url.com`
+4. Deploy
+
+### Backend (Railway/Render)
+1. Create new project
+2. Connect GitHub repo
+3. Set build command: `cd backend && npm install && npm run build`
+4. Set start command: `cd backend && npm start`
+5. Add environment variables:
+   - `GROQ_API_KEY`
+   - `SUI_PACKAGE_ID`
+   - `SUI_REGISTRY_ID`
+   - `SUI_PRIVATE_KEY`
+   - `PORT`
+
+### Extension
+Update `extension/popup.js` and `extension/manifest.json` with production backend URL.
+
 ## 🔗 Links
 
 - [Sui Explorer](https://suiscan.xyz/testnet)
