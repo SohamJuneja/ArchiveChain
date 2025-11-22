@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ArchiveChain</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #020617;
+        color: #e5e7eb;
+        padding: 12px;
+        width: 320px;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 4px;
+      }
+      p {
+        font-size: 11px;
+        margin: 0 0 8px;
+        color: #9ca3af;
+      }
+      .mode-toggle {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 12px;
+      }
+      .mode-btn {
+        flex: 1;
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid #374151;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        background: #1f2937;
+        color: #9ca3af;
+        transition: all 0.2s;
+      }
+      .mode-btn.active {
+        background: linear-gradient(to right, #7c3aed, #a855f7);
+        color: white;
+        border-color: #7c3aed;
+      }
+      .seal-panel {
+        display: none;
+        background: #1f2937;
+        border: 1px solid #7c3aed;
+        border-radius: 8px;
+        padding: 8px;
+        margin-bottom: 8px;
+      }
+      .seal-panel.active {
+        display: block;
+      }
+      .seal-panel label {
+        font-size: 10px;
+        font-weight: 600;
+        color: #c4b5fd;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .seal-panel textarea {
+        width: 100%;
+        box-sizing: border-box;
+        background: #111827;
+        border: 1px solid #374151;
+        border-radius: 6px;
+        color: #e5e7eb;
+        font-family: monospace;
+        font-size: 9px;
+        padding: 6px;
+        resize: vertical;
+        min-height: 60px;
+        outline: none;
+      }
+      .seal-panel textarea:focus {
+        border-color: #7c3aed;
+      }
+      .seal-panel .hint {
+        font-size: 9px;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+      button {
+        width: 100%;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        background: linear-gradient(to right, #2563eb, #7c3aed);
+        color: white;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      #status {
+        margin-top: 8px;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ArchiveChain</h1>
+    <p>Archive the current tab to Walrus + Sui.</p>
+    
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="public-mode">📢 Public</button>
+      <button class="mode-btn" id="sealed-mode">🔒 Sealed</button>
+    </div>
+    
+    <div class="seal-panel" id="seal-panel">
+      <label>🕵️ Recipient's Public Key:</label>
+      <textarea id="recipient-key" placeholder="Paste journalist's public key here..."></textarea>
+      <div class="hint">🔐 Only the recipient can decrypt this archive</div>
+    </div>
+    
+    <button id="archive-btn">Archive this page</button>
+    <div id="status"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

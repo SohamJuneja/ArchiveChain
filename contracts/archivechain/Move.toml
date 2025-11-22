@@ -1,0 +1,8 @@
+[package]
+name = "archivechain"
+edition = "2024.beta"
+
+[dependencies]
+
+[addresses]
+archivechain = "0x0"

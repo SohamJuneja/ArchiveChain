@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "ArchiveChain Capture",
+  "version": "0.0.1",
+  "description": "One-click ArchiveChain capture to Walrus + Sui.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://localhost:4000/*"],
+  "action": {
+    "default_title": "Archive with ArchiveChain",
+    "default_popup": "popup.html"
+  }
+}
