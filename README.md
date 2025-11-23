@@ -77,7 +77,6 @@ Raw diffs can be confusing. We integrate Grok (Llama 3 70B) to act as an automat
 
 ### 🕵️‍♂️ The "Whistleblower Drop" (Privacy Mode)
 
-
 - **The Use Case**: A whistleblower wants to archive a leaked internal memo but cannot publish it publicly yet.
 - **The Tech**: We use Hybrid Encryption (AES-256-GCM + RSA-OAEP).
 - **The Flow**: A journalist shares their Public Key. The whistleblower uses it to encrypt the archive client-side. The data is stored on Walrus, but only the journalist can decrypt it.
@@ -91,14 +90,14 @@ Raw diffs can be confusing. We integrate Grok (Llama 3 70B) to act as an automat
 
 ## 🧪 Technical Architecture
 
-```
+```mermaid
 graph TD
     User[User / Extension] -->|1. Request Archive| Backend[Node.js Backend]
-    Backend -->|2. Capture (Puppeteer)| Content[HTML + Screenshot]
+    Backend -->|2. Capture Puppeteer| Content[HTML + Screenshot]
     
     subgraph "Security Layer"
     Content -->|3. Zip & Hash| Zip[Archive.zip]
-    Zip -->|4. Hybrid Encryption (Optional)| Sealed[Sealed Blob]
+    Zip -->|4. Hybrid Encryption Optional| Sealed[Sealed Blob]
     end
     
     subgraph "Decentralized Storage"
